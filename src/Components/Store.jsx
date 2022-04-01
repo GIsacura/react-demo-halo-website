@@ -5,21 +5,21 @@ const Store = () => {
     <section id="get-the-game">
       <h2>Get the game.</h2>
 
-      <div class="item-store">
-        <div class="left">
+      <div className="item-store">
+        <div className="left">
           <img src="./src/images/game.png" alt=""/>
         </div>
 
-        <div class="right">
-          <div class="info-product">
+        <div className="right">
+          <div className="info-product">
             <h3>Halo Infinite (Campaign)</h3>
             <h4>Included with Xbox Game Pass Play Halo</h4>
             <p>
               Infinite and over 100 more high-quality games for one low monthly price with Xbox Game Pass.
             </p>
-            <button class="green-button">
+            <button className="green-button">
               JOIN XBOX GAME PASS
-              <span class="material-icons">&#xe5cc;</span>
+              <span className="material-icons">&#xe5cc;</span>
             </button>
 
             <h4>Buy Halo Infinite</h4>
@@ -29,9 +29,9 @@ const Store = () => {
               <option value="windows">Windows 10 PC</option>
               <option value="steam">Steam</option>
             </select>
-            <p class="green-button">
+            <p className="green-button">
               BUY NOW
-              <span class="material-icons">&#xe5cc;</span>
+              <span className="material-icons">&#xe5cc;</span>
             </p>
           </div>
         </div>

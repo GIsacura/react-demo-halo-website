@@ -1,42 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 const Header = () => {
-  const moreOptions = document.querySelector("#bmore");
-  const bShowMobileLinks = document.querySelector("#bmenu");
-  const mobileMenu = document.querySelector(".links");
-  const moreMenu = document.querySelector(".more .menu")
+  const mobileMenu = useRef(null) //document.querySelector(".links");
+  const moreMenu = useRef(null) //document.querySelector(".more .menu")
 
-  bShowMobileLinks.addEventListener("click", (e) => {
+  const showMobileLinks = (e) => {
     e.preventDefault();
-    mobileMenu.classList.toggle("show"); // En esta linea con el toggle hacemos que si mobileMenu tiene la clase show se la quita y si no la tiene se la coloca
-  });
+    mobileMenu.current.classList.toggle("show"); // En esta linea con el toggle hacemos que si mobileMenu tiene la clase show se la quita y si no la tiene se la coloca
+  };
 
-  moreOptions.addEventListener("click", (e) => {
+  const moreOptions = (e) => {
     e.preventDefault();
-    moreMenu.classList.toggle("show");
-  });
+    moreMenu.current.classList.toggle("show");
+  };
 
   return (
     <header>
       <nav>
-        <div class="mobile">
-          <div class="header">
-            <button id="bmenu">
-                <span class="material-icons">&#xe5d2;</span>
+        <div className="mobile">
+          <div className="header">
+            <button id="bmenu" onClick={showMobileLinks}>
+                <span className="material-icons">&#xe5d2;</span>
             </button>
             <a href="/"><img src="./src/images/logo.png" alt="Microsoft logo" width="150"/></a>
 
             <div>
               <a href="/">
-                <span class="material-icons">&#xe8cc;</span>
+                <span className="material-icons">&#xe8cc;</span>
               </a>
               <a href="/">
-                <span class="material-icons">&#xe853;</span>
+                <span className="material-icons">&#xe853;</span>
               </a>
             </div>
           </div>
 
-          <div class="links">
+          <div className="links" ref={mobileMenu}>
             <a href="/">Game Pass</a>
             <a href="/">Games</a>
             <a href="/">Devices</a>
@@ -51,16 +49,16 @@ const Header = () => {
 
         <ul>
           <li><a href="/"><img src="./src/images/logo.png" alt="Microsoft logo" width="125"/></a></li>
-          <li><a class="link" href="/">Game Pass</a></li>
-          <li><a class="link" href="/">Games</a></li>
-          <li><a class="link link-hide" href="/">Devices</a></li>
-          <li><a class="link link-hide" href="/">Cloud Gaming</a></li>
-          <li><a class="link link-hide" href="/">Community</a></li>
-          <li><a class="link link-hide" href="/">Support</a></li>
-          <li><a class="link link-hide" href="/">My Xbox</a></li>
-          <li class="more">
-            <a href="/" class="link" id="bmore">More</a>
-            <div class="menu">
+          <li><a className="link" href="/">Game Pass</a></li>
+          <li><a className="link" href="/">Games</a></li>
+          <li><a className="link link-hide" href="/">Devices</a></li>
+          <li><a className="link link-hide" href="/">Cloud Gaming</a></li>
+          <li><a className="link link-hide" href="/">Community</a></li>
+          <li><a className="link link-hide" href="/">Support</a></li>
+          <li><a className="link link-hide" href="/">My Xbox</a></li>
+          <li className="more">
+            <a href="/" className="link" id="bmore" onClick={moreOptions}>More</a>
+            <div className="menu" ref={moreMenu}>
               <a href="/">Devices</a>
               <a href="/">Cloud Gaming</a>
               <a href="/">Community</a>
@@ -71,9 +69,9 @@ const Header = () => {
         </ul>
 
         <ul>
-            <li><a href="/" class="link">Search</a></li>
-            <li><a href="/" class="link">Cart</a></li>
-            <li><a href="/" class="link">Sign In</a></li>
+            <li><a href="/" className="link">Search</a></li>
+            <li><a href="/" className="link">Cart</a></li>
+            <li><a href="/" className="link">Sign In</a></li>
         </ul>
       </nav>
     </header>

@@ -16,7 +16,7 @@ function App() {
       <Layout>
         <Header/>
         <Routes>
-          <Route exact path='./' element={<Home/>}/>
+          <Route exact path='/' element={<Home/>}/>
         </Routes>
       </Layout>
     </BrowserRouter>
