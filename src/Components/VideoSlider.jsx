@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const VideoSlider = () => {
   const currentContainer = useRef(null)
@@ -27,21 +27,6 @@ const VideoSlider = () => {
     currentContainer.current.innerHTML = `<iframe width="100%" height="713" src="https://www.youtube.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
   }
 
-  const renderVideos = () =>{
-    const html = videos.map((video, index) => {
-      return `
-        <div className="item">
-          <a href="#" data-id="${index}">
-            <img src="https://img.youtube.com/vi/${video.id}/mqdefault.jpg"/>
-          </a>
-        </div>
-      `
-    })
-
-    videosContainer.current.innerHTML = html.join("")
-  }
-
-
   const handleNextClick = () => {
     let changed = current;
     current = current + 1 < videos.length ? current + 1 : current
@@ -63,17 +48,17 @@ const VideoSlider = () => {
 
   useEffect(()=>{
     renderCurrentVideo(videos[current].id);
-    renderVideos()
-  },[])
 
-  document.querySelectorAll(".item a").forEach((item) => {
-    item.addEventListener("click", (e) => {
-      e.preventDefault();
-      const id = parseInt(item.getAttribute("data-id"));
-      current = id;
-      renderCurrentVideo(videos[current].id)
+    document.querySelectorAll(".item a").forEach((item) => {
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = parseInt(item.getAttribute("data-id"));
+        current = id;
+        renderCurrentVideo(videos[current].id)
+      })
     })
-  })
+
+  },[])
 
 
   return (
@@ -96,7 +81,15 @@ const VideoSlider = () => {
         <div id="current" ref={currentContainer}></div>
 
         <div id="main-videos-container">
-            <div id="videos-container" ref={videosContainer}></div>
+            <div id="videos-container" ref={videosContainer}>
+              {videos.map((video, index) => (
+                <div className="item">
+                  <a className="video" href="@#" data-id={index}>
+                    <img src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt=""/>
+                  </a>
+                </div>
+              ))}
+            </div>
         </div>
       </div>
     </section>
