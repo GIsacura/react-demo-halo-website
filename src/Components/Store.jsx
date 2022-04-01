@@ -7,7 +7,7 @@ const Store = () => {
 
       <div className="item-store">
         <div className="left">
-          <img src="./src/images/game.png" alt=""/>
+          <img src="./assets/images/game.png" alt="game-cover"/>
         </div>
 
         <div className="right">

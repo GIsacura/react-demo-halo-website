@@ -22,7 +22,7 @@ const Header = () => {
             <button id="bmenu" onClick={showMobileLinks}>
                 <span className="material-icons">&#xe5d2;</span>
             </button>
-            <a href="/"><img src="./src/images/logo.png" alt="Microsoft logo" width="150"/></a>
+            <a href="/"><img src="./assets/images/logo.png" alt="Microsoft logo" width="150"/></a>
 
             <div>
               <a href="/">
@@ -48,7 +48,7 @@ const Header = () => {
         </div>
 
         <ul>
-          <li><a href="/"><img src="./src/images/logo.png" alt="Microsoft logo" width="125"/></a></li>
+          <li><a href="/"><img src="./assets/images/logo.png" alt="Microsoft logo" width="125"/></a></li>
           <li><a className="link" href="/">Game Pass</a></li>
           <li><a className="link" href="/">Games</a></li>
           <li><a className="link link-hide" href="/">Devices</a></li>
